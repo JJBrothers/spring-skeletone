@@ -20,7 +20,7 @@ public class ApplicationContextTest {
 
 	@Test
 	public void test() {
-		logger.info(ctx.toString());//
+		logger.info(ctx.toString());//ㅁㅁ
 	}
 
 }
