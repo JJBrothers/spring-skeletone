@@ -254,7 +254,7 @@
 
 
 			<!-- maven 빌드에 사용하는 java version 안쓰면 maven project가 compile 버전과 동일시 되게 
-				설정 된다. 그러므로 다른 버전을 쓰고 싶으면 필히 넣어 놔야한다. -->
+				설정 된다. 그러므로 다른 버전을 쓰고 싶으면 필히 넣어 놔야한다. 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -269,7 +269,7 @@
 				</configuration>
 			</plugin>
 
-
+-->
 
 			<!-- maven 자체에서 junit 테스트를 통해 결과를 xml로 변환해주는 빌드 plugin -->
 			<plugin>
