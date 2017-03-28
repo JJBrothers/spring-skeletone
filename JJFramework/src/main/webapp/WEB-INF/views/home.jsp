@@ -10,5 +10,18 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<button id="ajax">a</button>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+$(function(){
+	$("#ajax").on("click", function(e){
+		e.preventDefault();
+		$.get("/ajax", function(data){
+			console.log(data);
+		});
+	})
+}())
+
+</script>
 </body>
 </html>
