@@ -39,10 +39,9 @@ public class StringUtil {
      * @param   vType    <code>return type</code>.
      * @return  String
      */
-    public static String formatDouble(double vValue, String vType) throws Exception {
+    public static String formatDouble(double vValue, String vType) {
         DecimalFormat displayDouble = new DecimalFormat(vType);
-        String vFormatvalue = "";
-        vFormatvalue = displayDouble.format(vValue);
+        String vFormatvalue = displayDouble.format(vValue);
        
         return vFormatvalue;
     }
@@ -73,6 +72,7 @@ public class StringUtil {
      * int value --> format string
      * @param   vValue   <code>int value</code>.
      * @return  String
+     * @throws Exception 
      */
     public static String formatInt(Integer vValue) throws Exception {
         return formatLong(vValue.longValue(), DOUBLE_FORMAT);
@@ -86,7 +86,7 @@ public class StringUtil {
      */
     public static String formatNumber(int num, String pattern) {
         DecimalFormat df = new DecimalFormat(pattern);
-        return (df.format((double)num));
+        return df.format((double)num);
     }
 
     /**
@@ -97,7 +97,7 @@ public class StringUtil {
      */
     public static String formatNumber(double num, String pattern) {
         DecimalFormat df = new DecimalFormat(pattern);
-        return (df.format(num));
+        return df.format(num);
     }
 
     /**
@@ -135,7 +135,7 @@ public class StringUtil {
      * @return  String  Korean
      */
     public static String asc2ksc(String en) throws Exception {
-        String newStr = null;
+        String newStr;
         if (en == null){
         	newStr ="";
         }else {
@@ -166,10 +166,8 @@ public class StringUtil {
      * @return  String
      */
     public static String ksc2asc(String ko) throws Exception {
-        String newStr = null;
-        try{
-            newStr = new String(ko.getBytes("KSC5601"), "8859_1");
-        } catch(Exception e){}
+        String newStr =  new String(ko.getBytes("KSC5601"), "8859_1");
+      
         return newStr;
     }
 
@@ -198,7 +196,9 @@ public class StringUtil {
      * @return  String
      */
     public static String replace(String s, String from, String to) throws Exception {
-        if (s == null) return null;
+        if (s == null){ 
+        	return null; 
+        }
 
         String result = s;
         try {
@@ -207,10 +207,12 @@ public class StringUtil {
                 int length = to.length();
 
                 while (index >= 0) {
-                    if (index == 0)
-                        result = to + result.substring(from.length());
-                    else
-                        result = result.substring(0,index) + to + result.substring(index+from.length());
+                    if (index == 0) {
+                    	result = to + result.substring(from.length());
+                    }
+                    else{
+                    	result = result.substring(0,index) + to + result.substring(index+from.length());
+                    }                    	
 
                     index = result.indexOf(from,index+length);
                 }
