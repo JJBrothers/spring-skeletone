@@ -25,59 +25,59 @@ public class StringUtil {
 
 	/**
      * double value --> format string
-     * @param   v_value   <code>double value</code>.
+     * @param   vValue   <code>double value</code>.
      * @return  String
      */
-    public static String formatDouble(double v_value) throws Exception {
-        return formatDouble(v_value, "###,###,##0.00");
+    public static String formatDouble(double vValue) throws Exception {
+        return formatDouble(vValue, "###,###,##0.00");
     }
 
     /**
      * double value --> format string
-     * @param   v_value   <code>double value</code>.
-     * @param   v_type    <code>return type</code>.
+     * @param   vValue   <code>double value</code>.
+     * @param   vType    <code>return type</code>.
      * @return  String
      */
-    public static String formatDouble(double v_value, String v_type) throws Exception {
-        DecimalFormat displayDouble = new DecimalFormat(v_type);
-        String v_formatvalue = "";
+    public static String formatDouble(double vValue, String vType) throws Exception {
+        DecimalFormat displayDouble = new DecimalFormat(vType);
+        String vFormatvalue = "";
         try {
-            v_formatvalue = displayDouble.format(v_value);
+            vFormatvalue = displayDouble.format(vValue);
         } catch(Exception e){}
-        return v_formatvalue;
+        return vFormatvalue;
     }
 
     /**
      * long value --> format string
-     * @param   v_value   <code>long value</code>.
+     * @param   vValue   <code>long value</code>.
      * @return  String
      */
-    public static String formatLong(long v_value) throws Exception {
-        return formatLong(v_value, "###,###,##0");
+    public static String formatLong(long vValue) throws Exception {
+        return formatLong(vValue, "###,###,##0");
     }
 
     /**
      * long value --> format string
-     * @param   v_value   <code>long value</code>.
-     * @param   v_type    <code>return type</code>.
+     * @param   vValue   <code>long value</code>.
+     * @param   vType    <code>return type</code>.
      * @return  String
      */
-    public static String formatLong(long v_value, String v_type) throws Exception {
-        DecimalFormat displayLong = new DecimalFormat(v_type);
-        String v_formatvalue = "";
+    public static String formatLong(long vValue, String vType) throws Exception {
+        DecimalFormat displayLong = new DecimalFormat(vType);
+        String vFormatvalue = "";
         try {
-            v_formatvalue = displayLong.format(v_value);
+            vFormatvalue = displayLong.format(vValue);
         } catch(Exception e){}
-        return v_formatvalue;
+        return vFormatvalue;
     }
 
     /**
      * int value --> format string
-     * @param   v_value   <code>int value</code>.
+     * @param   vValue   <code>int value</code>.
      * @return  String
      */
-    public static String formatInt(int v_value) throws Exception {
-        return formatLong(new Integer(v_value).longValue(), "###,###,##0");
+    public static String formatInt(int vValue) throws Exception {
+        return formatLong(new Integer(vValue).longValue(), "###,###,##0");
     }
 
     /**
@@ -104,30 +104,30 @@ public class StringUtil {
 
     /**
      * float value --> format string
-     * @param   v_value   <code>float value</code>.
+     * @param   vValue   <code>float value</code>.
      * @return  String
      */
-    public static String formatFloat(float v_value) throws Exception {
-        return formatDouble(new Float(v_value).doubleValue(), "###,###,##0.00");
+    public static String formatFloat(float vValue) throws Exception {
+        return formatDouble(new Float(vValue).doubleValue(), "###,###,##0.00");
     }
 
     /**
      * String value --> format string
-     * @param   v_value   <code>String value</code>.
+     * @param   vValue   <code>String value</code>.
      * @return  String
      */
-    public static String formatString(String v_value) throws Exception {
-        return formatDouble(Double.parseDouble(v_value), "###,###,##0.00");
+    public static String formatString(String vValue) throws Exception {
+        return formatDouble(Double.parseDouble(vValue), "###,###,##0.00");
     }
 
     /**
      * String value --> format string
-     * @param   v_value   <code>String value</code>.
-     * @param   v_type   <code>String type</code>.
+     * @param   vValue   <code>String value</code>.
+     * @param   vType   <code>String type</code>.
      * @return  String
      */
-    public static String formatString(String v_value, String v_type) throws Exception {
-        return formatDouble(Double.parseDouble(v_value), v_type);
+    public static String formatString(String vValue, String vType) throws Exception {
+        return formatDouble(Double.parseDouble(vValue), vType);
     }
 
     /**
@@ -137,12 +137,12 @@ public class StringUtil {
      * @return  String  Korean
      */
     public static String asc2ksc(String en) throws Exception {
-        String new_str = null;
+        String newStr = null;
         try{
-            if (en == null) new_str ="";
-            else new_str = new String(en.getBytes("8859_1"), "KSC5601");
+            if (en == null) newStr ="";
+            else newStr = new String(en.getBytes("8859_1"), "KSC5601");
         } catch(Exception e){}
-        return new_str;
+        return newStr;
     }
 
     /**
@@ -152,13 +152,13 @@ public class StringUtil {
      * @return  String[]  Korean
      */
     public static String[] asc2ksc(String[] en) throws Exception {
-        String[] new_str = null;
+        String[] newStr = null;
         try{
-            new_str = new String[en.length];
+            newStr = new String[en.length];
             for(int i=0;i<en.length;i++)
-            new_str[i] = asc2ksc(en[i]);
+            newStr[i] = asc2ksc(en[i]);
         } catch(Exception e){}
-        return new_str;
+        return newStr;
     }
 
     /**
@@ -168,11 +168,11 @@ public class StringUtil {
      * @return  String
      */
     public static String ksc2asc(String ko) throws Exception {
-        String new_str = null;
+        String newStr = null;
         try{
-            new_str = new String(ko.getBytes("KSC5601"), "8859_1");
+            newStr = new String(ko.getBytes("KSC5601"), "8859_1");
         } catch(Exception e){}
-        return new_str;
+        return newStr;
     }
 
     /**
@@ -183,12 +183,12 @@ public class StringUtil {
      */
     @SuppressWarnings("null")
 	public static String[] ksc2asc(String[] ko) throws Exception {
-        String[] new_str = null;
+        String[] newStr = null;
         try{
             for(int i=0;i<ko.length;i++)
-            new_str[i] = ksc2asc(ko[i]);
+            newStr[i] = ksc2asc(ko[i]);
         } catch(Exception e){}
-        return new_str;
+        return newStr;
     }
 
     /**
@@ -672,13 +672,13 @@ public class StringUtil {
      * @param   int
      * @return  String
      */
-    public static String formatJumin(String p_string,int indx) {
-        if (p_string==null) return "";
+    public static String formatJumin(String pString,int indx) {
+        if (pString==null) return "";
 
-        if (p_string.length() <= indx)
-            return p_string;
+        if (pString.length() <= indx)
+            return pString;
         else
-            return p_string.substring(0,indx)+"-" + p_string.substring(indx);
+            return pString.substring(0,indx)+"-" + pString.substring(indx);
     }
 
     /** br to tag
@@ -1175,18 +1175,18 @@ public class StringUtil {
      * @throws
      */
     public static byte[] stringToByteArray(String value) {
-    	byte[] new_bytes = null;
+    	byte[] newBytes = null;
 
     	try {
             if (value == null)
-            	return new_bytes;
+            	return newBytes;
 			else
-				new_bytes = value.getBytes("UTF-8");
+				newBytes = value.getBytes("UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			LoggerFactory.getLogger("error").error("[stringToByteArray(String value)] UnsupportedEncodingException :", e);
 		}
 
-        return new_bytes;
+        return newBytes;
     }
 
 	/**
@@ -1197,18 +1197,18 @@ public class StringUtil {
      * @throws
      */
     public static String byteArrayToString(byte[] arrByte) {
-        String new_str = null;
+        String newStr = null;
 
     	try {
             if (arrByte == null)
-            	return new_str;
+            	return newStr;
 			else
-				new_str = new String(arrByte, "UTF-8");
+				newStr = new String(arrByte, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			LoggerFactory.getLogger("error").error("[byteArrayToString(byte[] arrByte)] UnsupportedEncodingException :", e);
 		}
 
-        return new_str;
+        return newStr;
     }
 
 
@@ -2129,18 +2129,18 @@ public class StringUtil {
 	/**
 	 * 입력받은 문자열 중 size(byte)를 넘지 않도록 계산해서 해당 문자열을 돌려줌.
 	 *
-	 * @param p_str
+	 * @param pStr
 	 *            : 문자열
-	 * @param p_len
+	 * @param pLen
 	 *            : length
 	 * @return
 	 */
-	public static String getShortString(String p_str, int p_len) {
+	public static String getShortString(String pStr, int pLen) {
 		boolean chkFlag = false;
-		String strName = p_str.trim();
+		String strName = pStr.trim();
 		byte[] arName = strName.getBytes();
-		if (arName.length > p_len) {
-			for (int idx = 0; idx < p_len; idx++) {
+		if (arName.length > pLen) {
+			for (int idx = 0; idx < pLen; idx++) {
 				if (arName[idx] < 0) { // 0x80 이상 ( 1byte짜리. 키값들)
 					chkFlag = !chkFlag; // true로
 				} else {
@@ -2148,9 +2148,9 @@ public class StringUtil {
 				}
 			}
 			if (chkFlag) {
-				strName = new String(arName, 0, p_len + 1); // 홀수이면
+				strName = new String(arName, 0, pLen + 1); // 홀수이면
 			} else {
-				strName = new String(arName, 0, p_len); // 짝수일때
+				strName = new String(arName, 0, pLen); // 짝수일때
 			}
 		} else {
 			strName = new String(arName, 0, arName.length);
