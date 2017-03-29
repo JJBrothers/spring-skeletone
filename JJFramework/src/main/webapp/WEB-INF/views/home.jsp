@@ -19,8 +19,8 @@ $(function(){
 		$.get("/ajax", function(data){
 			console.log(data);
 		});
-	})
-}())
+	});
+}());
 
 </script>
 </body>

@@ -98,12 +98,11 @@ public class AbstractDAO {
 	    printQueryId(queryId);
 	    
 	    Map<String,Object> map = (Map<String,Object>)params;
-	    PaginationInfo paginationInfo = null;
-	    
+
 	    if(map.containsKey("currentPageNo") == false || StringUtils.isEmpty(map.get("currentPageNo")) == true)
 	        map.put("currentPageNo","1");
 	     
-	    paginationInfo = new PaginationInfo();
+	    PaginationInfo paginationInfo = new PaginationInfo();
 	    paginationInfo.setCurrentPageNo(Integer.parseInt(map.get("currentPageNo").toString()));
 	    if(map.containsKey("PAGE_ROW") == false || StringUtils.isEmpty(map.get("PAGE_ROW")) == true){
 	        paginationInfo.setRecordCountPerPage(10);
