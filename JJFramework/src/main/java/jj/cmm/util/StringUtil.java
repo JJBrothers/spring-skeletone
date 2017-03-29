@@ -23,13 +23,14 @@ import org.slf4j.LoggerFactory;
 
 public class StringUtil {
 
+	private static final String DOUBLE_FORMAT="###,###,##0";
 	/**
      * double value --> format string
      * @param   vValue   <code>double value</code>.
      * @return  String
      */
     public static String formatDouble(double vValue) throws Exception {
-        return formatDouble(vValue, "###,###,##0.00");
+        return formatDouble(vValue, DOUBLE_FORMAT);
     }
 
     /**
@@ -41,9 +42,8 @@ public class StringUtil {
     public static String formatDouble(double vValue, String vType) throws Exception {
         DecimalFormat displayDouble = new DecimalFormat(vType);
         String vFormatvalue = "";
-        try {
-            vFormatvalue = displayDouble.format(vValue);
-        } catch(Exception e){}
+        vFormatvalue = displayDouble.format(vValue);
+       
         return vFormatvalue;
     }
 
@@ -53,7 +53,7 @@ public class StringUtil {
      * @return  String
      */
     public static String formatLong(long vValue) throws Exception {
-        return formatLong(vValue, "###,###,##0");
+        return formatLong(vValue, DOUBLE_FORMAT);
     }
 
     /**
@@ -65,9 +65,7 @@ public class StringUtil {
     public static String formatLong(long vValue, String vType) throws Exception {
         DecimalFormat displayLong = new DecimalFormat(vType);
         String vFormatvalue = "";
-        try {
-            vFormatvalue = displayLong.format(vValue);
-        } catch(Exception e){}
+        vFormatvalue = displayLong.format(vValue);
         return vFormatvalue;
     }
 
@@ -77,7 +75,7 @@ public class StringUtil {
      * @return  String
      */
     public static String formatInt(Integer vValue) throws Exception {
-        return formatLong(vValue.longValue(), "###,###,##0");
+        return formatLong(vValue.longValue(), DOUBLE_FORMAT);
     }
 
     /**
@@ -88,7 +86,7 @@ public class StringUtil {
      */
     public static String formatNumber(int num, String pattern) {
         DecimalFormat df = new DecimalFormat(pattern);
-        return (df.format((double)num)).toString();
+        return (df.format((double)num));
     }
 
     /**
@@ -99,7 +97,7 @@ public class StringUtil {
      */
     public static String formatNumber(double num, String pattern) {
         DecimalFormat df = new DecimalFormat(pattern);
-        return (df.format(num)).toString();
+        return (df.format(num));
     }
 
     /**
@@ -108,7 +106,7 @@ public class StringUtil {
      * @return  String
      */
     public static String formatFloat(Float vValue) throws Exception {
-        return formatDouble(vValue.doubleValue(), "###,###,##0.00");
+        return formatDouble(vValue.doubleValue(), DOUBLE_FORMAT);
     }
 
     /**
@@ -117,7 +115,7 @@ public class StringUtil {
      * @return  String
      */
     public static String formatString(String vValue) throws Exception {
-        return formatDouble(Double.parseDouble(vValue), "###,###,##0.00");
+        return formatDouble(Double.parseDouble(vValue), DOUBLE_FORMAT);
     }
 
     /**
@@ -138,10 +136,12 @@ public class StringUtil {
      */
     public static String asc2ksc(String en) throws Exception {
         String newStr = null;
-        try{
-            if (en == null) newStr ="";
-            else newStr = new String(en.getBytes("8859_1"), "KSC5601");
-        } catch(Exception e){}
+        if (en == null){
+        	newStr ="";
+        }else {
+        	newStr = new String(en.getBytes("8859_1"), "KSC5601");
+        }
+
         return newStr;
     }
 
@@ -152,12 +152,10 @@ public class StringUtil {
      * @return  String[]  Korean
      */
     public static String[] asc2ksc(String[] en) throws Exception {
-        String[] newStr = null;
-        try{
-            newStr = new String[en.length];
-            for(int i=0;i<en.length;i++)
-            newStr[i] = asc2ksc(en[i]);
-        } catch(Exception e){}
+        String[] newStr = new String[en.length];
+        for(int i=0;i<en.length;i++){
+        	newStr[i] = asc2ksc(en[i]);
+        }
         return newStr;
     }
 
@@ -184,10 +182,10 @@ public class StringUtil {
     @SuppressWarnings("null")
 	public static String[] ksc2asc(String[] ko) throws Exception {
         String[] newStr = null;
-        try{
-            for(int i=0;i<ko.length;i++)
-            newStr[i] = ksc2asc(ko[i]);
-        } catch(Exception e){}
+
+        for(int i=0;i<ko.length;i++){
+        	newStr[i] = ksc2asc(ko[i]);	
+        }
         return newStr;
     }
 
