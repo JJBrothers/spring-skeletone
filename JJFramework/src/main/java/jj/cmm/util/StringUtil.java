@@ -64,7 +64,7 @@ public class StringUtil {
      * @return
      */
     public static List stringToArray(String str, String strSplit){
-    	List retList = new ArrayList();//
+    	List retList = new ArrayList();//aaa
     	if(str != null){
 	    	String[] tmp = str.split(strSplit);
     		for(int i = 0; i < tmp.length; i ++){
