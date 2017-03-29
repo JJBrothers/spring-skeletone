@@ -76,8 +76,8 @@ public class StringUtil {
      * @param   vValue   <code>int value</code>.
      * @return  String
      */
-    public static String formatInt(int vValue) throws Exception {
-        return formatLong(new Integer(vValue).longValue(), "###,###,##0");
+    public static String formatInt(Integer vValue) throws Exception {
+        return formatLong(vValue.longValue(), "###,###,##0");
     }
 
     /**
@@ -107,8 +107,8 @@ public class StringUtil {
      * @param   vValue   <code>float value</code>.
      * @return  String
      */
-    public static String formatFloat(float vValue) throws Exception {
-        return formatDouble(new Float(vValue).doubleValue(), "###,###,##0.00");
+    public static String formatFloat(Float vValue) throws Exception {
+        return formatDouble(vValue.doubleValue(), "###,###,##0.00");
     }
 
     /**
